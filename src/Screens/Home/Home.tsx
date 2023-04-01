@@ -9,7 +9,7 @@ import {
 import { useState } from 'react';
 import CardView from '../../Components/CardView';
 import { IMovie } from '../../Interfaces/IMovies';
-import Movies from '../../Services/APIs/Movies/Movies';
+import { getMovies } from '../../Services/APIs/Movies/Movies';
 import Colors from '../../Utils/Common/Colors';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Else, If, Then } from 'react-if';
@@ -22,7 +22,7 @@ const Home = () => {
   const { data, isLoading, refetch } = useQuery<IMovie[]>(
     ['get-movies'],
     async () => {
-      const { data } = await Movies.getMovies(searchText);
+      const { data } = await getMovies(searchText);
       return data;
     }
   );
