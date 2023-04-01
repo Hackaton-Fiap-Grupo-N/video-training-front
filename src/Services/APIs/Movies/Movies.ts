@@ -6,7 +6,7 @@ export const mockApi = <T>(data: T): Promise<T> => {
   });
 };
 
-const getMovies = (search: string) =>
+export const getMovies = (search: string) =>
   mockApi({
     data: [
       {
@@ -44,9 +44,4 @@ const getMovies = (search: string) =>
 
 // const getMovies = (search: string) => api.get("/movies?searchTerm=" + search);
 // const getPersonsPost = (data: any) => api.post("/persons/getPersons", data);
-const getMovieInfo = (prodID: string) => api.get('/movies/' + prodID);
-
-export default {
-  getMovies,
-  getMovieInfo,
-};
+export const getMovieInfo = (prodID: string) => api.get('/movies/' + prodID);
