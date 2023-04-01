@@ -6,7 +6,7 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import CardView from '../../Components/CardView';
 import { IMovie } from '../../Interfaces/IMovies';
 import Colors from '../../Utils/Common/Colors';
@@ -28,7 +28,7 @@ const Home = () => {
   );
 
   const onChangeSearch = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
     setSearchText(event.target.value);
   };
