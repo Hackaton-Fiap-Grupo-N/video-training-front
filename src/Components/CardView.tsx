@@ -1,7 +1,7 @@
 import { Card, CardMedia, CardContent, Typography } from '@mui/material';
-import { IMovie } from '../Interfaces/IMovies';
 import Colors from '../Utils/Common/Colors';
 import './CardStyles.css';
+import { IMovie } from '../Interfaces/IMovies';
 
 type IProps = {
   movie: IMovie;
