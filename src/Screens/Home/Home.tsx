@@ -6,54 +6,32 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CardView from '../../Components/CardView';
 import { IMovie } from '../../Interfaces/IMovies';
-import useAPI from '../../Services/APIs/Common/useAPI';
 import Movies from '../../Services/APIs/Movies/Movies';
 import Colors from '../../Utils/Common/Colors';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Else, If, Then } from 'react-if';
 import './HomeStyles.css';
+import { useQuery } from 'react-query';
 
 const Home = () => {
-  const [movies, setMovies] = useState<IMovie[]>([]);
   const [searchText, setSearchText] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const getPersonAPI = useAPI(Movies.getMovies);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    setIsLoading(true);
-    getPersonAPI
-      .requestPromise(searchText)
-      .then((info: IMovie[]) => {
-        console.log(info);
-        setMovies(info);
-        setIsLoading(false);
-      })
-      .catch((info: any) => {
-        console.log(info);
-      });
-  };
+  const { data, isLoading, refetch } = useQuery<IMovie[]>(
+    ['get-movies'],
+    async () => {
+      const { data } = await Movies.getMovies(searchText);
+      return data;
+    }
+  );
 
   const onChangeSearch = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
     setSearchText(event.target.value);
   };
-
-  let arrayInfo: JSX.Element[] = [];
-  movies.forEach((movie: IMovie) => {
-    arrayInfo.push(
-      <Grid item xs={4} key={movie.id}>
-        <CardView movie={movie} />
-      </Grid>
-    );
-  });
 
   return (
     <Container maxWidth="lg">
@@ -73,7 +51,7 @@ const Home = () => {
                 onChange={onChangeSearch}
               />{' '}
               &nbsp;
-              <Button variant="contained" onClick={() => getData()}>
+              <Button variant="contained" onClick={() => refetch()}>
                 Buscar
               </Button>
             </Grid>
@@ -88,7 +66,11 @@ const Home = () => {
             </Then>
             <Else>
               <Grid container spacing={2}>
-                {arrayInfo}
+                {data?.map((movie) => (
+                  <Grid item xs={4} key={movie.id}>
+                    <CardView movie={movie} />
+                  </Grid>
+                ))}
               </Grid>
             </Else>
           </If>
