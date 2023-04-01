@@ -4,22 +4,18 @@ on:
   push:
     branches:
       - dev
-      
-permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: read 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Configure aws credentials
+      - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::771282812019:oidc-provider/token.actions.githubusercontent.com
-          role-session-name: samplerolesession
           aws-region: us-east-2
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
