@@ -6,15 +6,15 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import CardView from '../../Components/CardView';
-import { IMovie } from '../../Interfaces/IMovies';
 import { getMovies } from '../../Services/APIs/Movies/Movies';
 import Colors from '../../Utils/Common/Colors';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Else, If, Then } from 'react-if';
 import './HomeStyles.css';
 import { useQuery } from 'react-query';
+import { IMovie } from '../../Interfaces/IMovies';
 
 const Home = () => {
   const [searchText, setSearchText] = useState<string>('');
@@ -28,7 +28,7 @@ const Home = () => {
   );
 
   const onChangeSearch = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
     setSearchText(event.target.value);
   };
