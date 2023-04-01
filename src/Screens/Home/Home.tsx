@@ -5,32 +5,32 @@ import {
   TextField,
   Typography,
   Box,
-} from "@mui/material";
-import { useState, useEffect } from "react";
-import CardView from "../../Components/CardView";
-import { IMovie } from "../../Interfaces/IMovies";
-import useAPI from "../../Services/APIs/Common/useAPI";
-import Movies from "../../Services/APIs/Movies/Movies";
-import Colors from "../../Utils/Common/Colors";
-import CircularProgress from "@mui/material/CircularProgress";
-import { Else, If, Then } from "react-if";
-import "./HomeStyles.css";
+} from '@mui/material';
+import { useState, useEffect } from 'react';
+import CardView from '../../Components/CardView';
+import { IMovie } from '../../Interfaces/IMovies';
+import useAPI from '../../Services/APIs/Common/useAPI';
+import Movies from '../../Services/APIs/Movies/Movies';
+import Colors from '../../Utils/Common/Colors';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Else, If, Then } from 'react-if';
+import './HomeStyles.css';
 
 const Home = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
-  const [searchText, setSearchText] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [searchText, setSearchText] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const getPersonAPI = useAPI(Movies.getMovies);
 
   useEffect(() => {
-    getData()
+    getData();
   }, []);
 
   const getData = () => {
     setIsLoading(true);
     getPersonAPI
       .requestPromise(searchText)
-      .then((info: IMovie[]) => {        
+      .then((info: IMovie[]) => {
         console.log(info);
         setMovies(info);
         setIsLoading(false);
@@ -45,7 +45,6 @@ const Home = () => {
   ) => {
     setSearchText(event.target.value);
   };
-
 
   let arrayInfo: JSX.Element[] = [];
   movies.forEach((movie: IMovie) => {
@@ -72,8 +71,11 @@ const Home = () => {
                 label="Pesquisar"
                 size="small"
                 onChange={onChangeSearch}
-              /> &nbsp;
-              <Button variant="contained" onClick={() => getData()}>Buscar</Button>
+              />{' '}
+              &nbsp;
+              <Button variant="contained" onClick={() => getData()}>
+                Buscar
+              </Button>
             </Grid>
           </Grid>
         </Grid>

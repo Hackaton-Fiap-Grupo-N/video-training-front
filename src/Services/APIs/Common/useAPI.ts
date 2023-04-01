@@ -1,5 +1,5 @@
-import { AxiosError, AxiosResponseHeaders } from "axios";
-import { useState } from "react";
+import { AxiosError, AxiosResponseHeaders } from 'axios';
+import { useState } from 'react';
 
 export type useApiReturnType = {
   data: any;
@@ -10,7 +10,7 @@ export type useApiReturnType = {
 };
 const useAPI = (apiFunc: any): useApiReturnType => {
   const [data, setData] = useState<any>(null);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const request = async (...args: any[]) => {
@@ -19,7 +19,7 @@ const useAPI = (apiFunc: any): useApiReturnType => {
       const result = await apiFunc(...args);
       setData(result.data);
     } catch (err: any) {
-      setError(err.message || "Unexpected Error!");
+      setError(err.message || 'Unexpected Error!');
     } finally {
       setLoading(false);
     }
@@ -39,7 +39,7 @@ const useAPI = (apiFunc: any): useApiReturnType => {
             reject(error);
           });
       } catch (err: any) {
-        reject(err.message || "Unexpected Error!");
+        reject(err.message || 'Unexpected Error!');
       }
     });
   };
