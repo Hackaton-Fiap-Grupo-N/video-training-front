@@ -20,10 +20,10 @@ jobs:
           role-to-assume: arn:aws:iam::771282812019:role/Github
           role-session-name: samplerolesession
           aws-region: us-east-2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 16
       - name: Install dependencies
         run: yarn
       - name: Build
