@@ -1,10 +1,8 @@
-import "@material-ui/core/styles";
+import '@material-ui/core/styles';
 
-import { OverridableStringUnion } from "@mui/types";
-import { PaletteColor, PaletteColorOptions } from "@mui/material/styles";
-import { ButtonPropsVariantOverrides } from "@mui/material";
+import { PaletteColor } from '@mui/material/styles';
 
-declare module "@mui/material/styles" {
+declare module '@mui/material/styles' {
   interface CustomPalette {
     neutral: PaletteColor;
   }
@@ -12,7 +10,7 @@ declare module "@mui/material/styles" {
   interface PaletteOptions extends CustomPalette {}
 }
 
-declare module "@mui/material/Button" {
+declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     primary: true;
     secondary: true;

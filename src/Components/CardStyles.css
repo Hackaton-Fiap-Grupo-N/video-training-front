@@ -1,11 +1,11 @@
 .titleClass {
     display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.descriptionClass{    
+.descriptionClass {
     min-height: 80px;
     display: -webkit-box;
     -webkit-line-clamp: 4;

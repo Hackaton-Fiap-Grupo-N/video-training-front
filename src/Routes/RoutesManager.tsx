@@ -1,5 +1,5 @@
-import HomeController from "../Screens/Home/Home";
-import { Routes, Route } from "react-router-dom";
+import HomeController from '../Screens/Home/Home';
+import { Routes, Route } from 'react-router-dom';
 
 const RoutesManager = () => {
   return (

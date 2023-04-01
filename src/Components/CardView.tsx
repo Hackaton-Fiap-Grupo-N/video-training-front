@@ -1,18 +1,13 @@
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-} from "@mui/material";
-import { IMovie } from "../Interfaces/IMovies";
-import Colors from "../Utils/Common/Colors";
-import "./CardStyles.css"
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { IMovie } from '../Interfaces/IMovies';
+import Colors from '../Utils/Common/Colors';
+import './CardStyles.css';
 
 type IProps = {
-  movie: IMovie;  
+  movie: IMovie;
 };
 
-const CardView = ({movie} : IProps) => {
+const CardView = ({ movie }: IProps) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -21,10 +16,20 @@ const CardView = ({movie} : IProps) => {
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" color={Colors.PrimaryLight} className="titleClass">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          color={Colors.PrimaryLight}
+          className="titleClass"
+        >
           {movie.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" className="descriptionClass">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          className="descriptionClass"
+        >
           {movie.description}
         </Typography>
       </CardContent>
@@ -32,4 +37,4 @@ const CardView = ({movie} : IProps) => {
   );
 };
 
-export default CardView;;
+export default CardView;

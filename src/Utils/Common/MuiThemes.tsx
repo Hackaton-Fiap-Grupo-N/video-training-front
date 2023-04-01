@@ -1,7 +1,6 @@
-import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Colors from "./Colors";
-import Sizes from "./Sizes";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Colors from './Colors';
+import Sizes from './Sizes';
 
 type iProps = {
   children: any;
@@ -9,21 +8,21 @@ type iProps = {
 const MuiThemes = ({ children }: iProps) => {
   const theme = createTheme({
     typography: {
-      fontFamily: ["Poppins", "sans-serif"].join(","),
+      fontFamily: ['Poppins', 'sans-serif'].join(','),
       h1: {
         fontSize: Sizes.FontSizeXL,
         color: Colors.NeutralDark,
-        fontWeight: "bold",
+        fontWeight: 'bold',
       },
       h2: {
         fontSize: Sizes.FontSizeLG,
         color: Colors.NeutralDark,
-        fontWeight: "bold",
+        fontWeight: 'bold',
       },
       h3: {
         fontSize: Sizes.FontSizeSM,
         color: Colors.NeutralDark,
-        fontWeight: "bold",
+        fontWeight: 'bold',
       },
       body1: {
         fontSize: Sizes.FontSizeSM,
@@ -57,7 +56,7 @@ const MuiThemes = ({ children }: iProps) => {
         variants: [
           {
             props: {
-              color: "success",
+              color: 'success',
             },
             style: {
               color: Colors.Success,
@@ -65,7 +64,7 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              color: "neutral",
+              color: 'neutral',
             },
             style: {
               color: Colors.Neutral,
@@ -73,7 +72,7 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              color: "warning",
+              color: 'warning',
             },
             style: {
               color: Colors.Warning,
@@ -81,7 +80,7 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              color: "info",
+              color: 'info',
             },
             style: {
               color: Colors.Report,
@@ -89,7 +88,7 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              color: "error",
+              color: 'error',
             },
             style: {
               color: Colors.Error,
@@ -97,55 +96,55 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              variant: "primary",
+              variant: 'primary',
             },
             style: {
-              textTransform: "none",
+              textTransform: 'none',
               background: Colors.PrimaryMedium,
               minWidth: 200,
               fontSize: Sizes.FontSizeSM,
               fontWeight: 700,
-              lineHeight: "27px",
+              lineHeight: '27px',
               borderRadius: 24,
               boxShadow:
-                "0px 4px 4px rgba(251, 181, 122, 0.44), 0px 5px 4px rgba(255, 193, 140, 0.36), 0px 7px 15px 2px rgba(255, 175, 107, 0.58); border- radius: 24px;",
+                '0px 4px 4px rgba(251, 181, 122, 0.44), 0px 5px 4px rgba(255, 193, 140, 0.36), 0px 7px 15px 2px rgba(255, 175, 107, 0.58); border- radius: 24px;',
               color: Colors.White,
-              marginTop: "15px",
-              marginBottom: "15px",
-              "&:hover": {
+              marginTop: '15px',
+              marginBottom: '15px',
+              '&:hover': {
                 background: Colors.PrimaryMedium,
                 boxShadow:
-                  "0px 22px 17px rgba(243, 129, 33, 0.14), 0px 4px 30px 3px rgba(243, 129, 33, 0.43)",
+                  '0px 22px 17px rgba(243, 129, 33, 0.14), 0px 4px 30px 3px rgba(243, 129, 33, 0.43)',
               },
-              "&:active": {
+              '&:active': {
                 background: Colors.PrimaryDark,
                 boxShadow:
-                  "0px 22px 17px rgba(243, 129, 33, 0.14), 0px 4px 30px 3px rgba(243, 129, 33, 0.43)",
+                  '0px 22px 17px rgba(243, 129, 33, 0.14), 0px 4px 30px 3px rgba(243, 129, 33, 0.43)',
               },
             },
           },
           {
             props: {
-              variant: "secondary",
+              variant: 'secondary',
             },
             style: {
-              textTransform: "none",
+              textTransform: 'none',
               background: Colors.White,
-              border: "2px solid " + Colors.SecondaryDark,
-              boxSizing: "border-box",
+              border: '2px solid ' + Colors.SecondaryDark,
+              boxSizing: 'border-box',
               minWidth: 200,
               fontSize: Sizes.FontSizeSM,
               fontWeight: 700,
-              lineHeight: "27px",
+              lineHeight: '27px',
               borderRadius: 24,
               color: Colors.SecondaryDark,
-              marginTop: "15px",
-              marginBottom: "15px",
-              "&:hover": {
+              marginTop: '15px',
+              marginBottom: '15px',
+              '&:hover': {
                 background: Colors.SecondaryMedium,
                 color: Colors.White,
               },
-              "&:active": {
+              '&:active': {
                 background: Colors.SecondaryDark,
                 color: Colors.White,
               },
@@ -153,19 +152,19 @@ const MuiThemes = ({ children }: iProps) => {
           },
           {
             props: {
-              variant: "disabled",
+              variant: 'disabled',
             },
             style: {
-              textTransform: "none",
+              textTransform: 'none',
               background: Colors.BackgroundDisabled,
               minWidth: 200,
               fontSize: Sizes.FontSizeSM,
               fontWeight: 700,
-              lineHeight: "27px",
+              lineHeight: '27px',
               borderRadius: 24,
               color: Colors.NeutralMedium,
-              marginTop: "15px",
-              marginBottom: "15px",
+              marginTop: '15px',
+              marginBottom: '15px',
             },
           },
         ],
